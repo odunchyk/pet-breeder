@@ -23,20 +23,23 @@ export const getRandomCats = async (limit) => {
 
 const fetchDetailedData = async (id) => {
   const detailResponse = await fetch(`${BASE_URL}/images/${id}`);
+  const detailResult = await detailResponse.json();
 
-  return detailResponse.json();
+  return detailResult;
 };
 
 export const getCatBreeds = async () => {
-  const breeds = await fetch(`${BASE_URL}/breeds`);
+  const breedsResponse = await fetch(`${BASE_URL}/breeds`);
+  const breedsResult = await breedsResponse.json();
 
-  return breeds.json();
+  return breedsResult;
 };
 
 export const getCatBreedList = async (limit, breedId) => {
-  const breeds = await fetch(
+  const breedsListResponse = await fetch(
     `${BASE_URL}/images/search?limit=${limit}&breed_ids=${breedId}`
   );
+  const breedsListResult = await breedsListResponse.json();
 
-  return breeds.json();
+  return breedsListResult;
 };
